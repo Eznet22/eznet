@@ -1,3 +1,5 @@
+<img src="https://github.com/Eznet22/eznet/blob/main/Graphics/logo.png" alt="Alt text" title="Optional title">
+
 # EZnet
 Easy Deployment Wireless Network Solution for Events
 

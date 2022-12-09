@@ -1,0 +1,21 @@
+/interface bridge
+add name=bridge1
+/interface wireless
+set [ find default-name=wlan1 ] country="czech republic" disabled=no hide-ssid=\
+    yes mode=ap-bridge ssid=MESH wds-default-bridge=bridge1 wds-mode=\
+    dynamic-mesh
+/interface ethernet
+set [ find default-name=ether1 ]
+/interface wireless security-profiles
+set [ find default=yes ] authentication-types=wpa2-psk mode=dynamic-keys \
+    supplicant-identity=MikroTik wpa2-pre-shared-key=testmesh
+/interface bridge port
+add bridge=bridge1 interface=ether1
+/ip address
+add address=10.66.0.3/24 interface=bridge1 network=10.66.0.0
+/system clock
+set time-zone-name=Europe/Prague
+/system identity
+set name=EZMAP_3
+/system leds
+set 0 interface=wlan1 leds=led1 type=interface-activity
